@@ -47,7 +47,7 @@ resource "aws_subnet" "public_subnet1" {
   availability_zone = "us-east-1b"   
 
   tags = {
-    Name = "public-subnet"
+    Name = "public-subnet1"
   }
 }
 
@@ -57,7 +57,7 @@ resource "aws_subnet" "public_subnet2" {
   availability_zone = "us-east-1c"  
 
   tags = {
-    Name = "public-subnet"
+    Name = "public-subnet2"
   }
 }
 
@@ -77,7 +77,7 @@ resource "aws_subnet" "private_subnet1" {
   availability_zone = "us-east-1b"   
 
   tags = {
-    Name = "private-subnet"
+    Name = "private-subnet1"
   }
 }
 
@@ -87,7 +87,7 @@ resource "aws_subnet" "private_subnet2" {
   availability_zone = "us-east-1c"   
 
   tags = {
-    Name = "private-subnet"
+    Name = "private-subnet2"
   }
 }
 
