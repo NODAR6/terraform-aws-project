@@ -1,9 +1,7 @@
 # Cteare Internet gateway
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.procetvpc.id
-  subnet_id     = aws_subnet.public_subnet.id
-  subnet_id     = aws_subnet.public_subnet1.id
-  subnet_id     = aws_subnet.public_subnet2.id
+
  
  
  
@@ -15,15 +13,11 @@ resource "aws_internet_gateway" "igw" {
 
 # NAT gateway
 
-resource "aws_nat_gateway" "nat" {
-  allocation_id = aws_eip.nat.id
-  subnet_id     = aws_subnet.private_subnet.id
-  subnet_id     = aws_subnet.private_subnet1.id
-  subnet_id     = aws_subnet.private_subnet2.id
-  tags = {
-    Name = "nat"
-  }
-
+resource "aws_nat_gateway" "ng" {
+  count         = 3
+  subnet_id     = element(aws_subnet.public.*.id, count.index)
+  allocation_id = element(aws_eip.ng.*.id, count.index)
+}
 
 
 
